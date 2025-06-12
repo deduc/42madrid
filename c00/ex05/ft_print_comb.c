@@ -6,89 +6,44 @@
 /*   By: igomez-c <igomez-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 16:47:31 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/12 18:30:03 by igomez-c         ###   ########.fr       */
+/*   Updated: 2025/06/12 19:21:00 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_comb(void);
+void	ft_print_comb(void);
 
-void ft_print_comb(void)
+#include <unistd.h>
+
+void	ft_print_comb(void)
 {
-    int a;
-    int b;
-    int c;
+	int	a, b, c;
+	char	ca, cb, cc;
 
-    a = 0;
-    b = 1;
-    c = 2;
-    
-    while (a <= 7)
-    {
-        while (b <= 8)
-        {
-            while (c <= 9)
-            {
-                c++
-            }
-
-            //cosas
-
-            b++;
-            c = b + 1;
-        }
-
-        //cosas
-
-        a++;
-        b = a + 1;
-    }
-    // print 789
-    
-    /*
-        a < b < c
-        000
-        00123456789
-        0123456789
-        023456789
-        03456789
-        0456789
-        056789
-        06789
-        0789
-        08X -> como c = b+1 = 9, pasamos al A; a = 1, b = a+1, c = b+1
-        123456789
-        13456789
-        1456789
-        156789
-        16789
-        1789
-        189
-        23456789
-        2456789
-        256789
-        26789
-        2789
-        289
-        3456789
-        356789
-        36789
-        3789
-        389
-        456789
-        46789
-        4789
-        489
-        56789
-        5789
-        589
-        678
-        689
-        789
-        
-    */
-
+	a = 0;
+	while (a <= 7)
+	{
+		b = a + 1;
+		while (b <= 8)
+		{
+			c = b + 1;
+			while (c <= 9)
+			{
+				ca = a + '0';
+				cb = b + '0';
+				cc = c + '0';
+				write(1, &ca, 1);
+				write(1, &cb, 1);
+				write(1, &cc, 1);
+				if (a != 7 || b != 8 || c != 9)
+					write(1, ", ", 2);
+				c++;
+			}
+			b++;
+		}
+		a++;
+	}
 }
 
 int main(void)
