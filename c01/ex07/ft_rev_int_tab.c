@@ -6,29 +6,29 @@
 /*   By: igomez-c <igomez-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 15:48:41 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/18 16:24:56 by igomez-c         ###   ########.fr       */
+/*   Updated: 2025/06/19 12:30:19 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+// #include <unistd.h>
+// #include <stdio.h>
 
 void	ft_rev_int_tab(int *tab, int size);
 
-int	main(void)
-{
-	int	arr[5];
-	int	arr_size;
+// int	main(void)
+// {
+// 	int	arr[5];
+// 	int	arr_size;
 
-	arr[0] = 5;
-	arr[1] = 4;
-	arr[2] = 3;
-	arr[3] = 2;
-	arr[4] = 1;
-	arr_size = 5;
-	ft_rev_int_tab(arr, arr_size);
-	return (0);
-}
+// 	arr[0] = 5;
+// 	arr[1] = 4;
+// 	arr[2] = 3;
+// 	arr[3] = 2;
+// 	arr[4] = 1;
+// 	arr_size = 5;
+// 	ft_rev_int_tab(arr, arr_size);
+// 	return (0);
+// }
 
 void	ft_rev_int_tab(int *tab, int size)
 {

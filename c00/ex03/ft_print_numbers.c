@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igomez-c <igomez-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 18:41:29 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/19 12:18:13 by igomez-c         ###   ########.fr       */
+/*   Created: 2025/06/12 14:43:00 by igomez-c          #+#    #+#             */
+/*   Updated: 2025/06/17 15:26:16 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_ft(int *********nbr)
-{
-	*********nbr = 42;
-}
+#include <unistd.h>
+
+void	ft_print_numbers(void);
 
 // int	main(void)
 // {
-// 	int	value;
-// 	int	*p1;
-// 	int	**p2;
-// 	int	***p3;
-// 	int	****p4;
-// 	int	*****p5;
-// 	int	******p6;
-// 	int	*******p7;
-// 	int	********p8;
-// 	int	*********p9;
-
-// 	p1 = &value;
-// 	p2 = &p1;
-// 	p3 = &p2;
-// 	p4 = &p3;
-// 	p5 = &p4;
-// 	p6 = &p5;
-// 	p7 = &p6;
-// 	p8 = &p7;
-// 	p9 = &p8;
-// 	ft_ultimate_ft(p9);
+// 	ft_print_numbers();
 // 	return (0);
 // }
+
+void	ft_print_numbers(void)
+{
+	int	a;
+
+	a = '0';
+	while (a <= '9')
+	{
+		write(1, &a, 1);
+		a++;
+	}
+}

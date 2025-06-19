@@ -3,78 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: igomez-c <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: igomez-c <igomez-c@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 16:25:32 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/18 17:10:26 by igomez-c         ###   ########.fr       */
+/*   Updated: 2025/06/19 13:48:39 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <unistd.h>
+// #include <stdio.h>
 
-void ft_sort_int_tab(int *array, int size);
+void	ft_rev_int_tab(int *tab, int size);
 
-int main()
+// int	main(void)
+// {
+// 	int	arr[5];
+// 	int	size;
+// 	int	i;
+
+// 	arr[0] = 9;
+// 	arr[1] = 5;
+// 	arr[2] = 3;
+// 	arr[3] = 4;
+// 	arr[4] = 2;
+// 	size = 5;
+// 	ft_rev_int_tab(arr, size);
+// 	i = 0;
+// 	while (i < size)
+// 	{
+// 		printf("%i", arr[i]);
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
+void	ft_rev_int_tab(int *tab, int size)
 {
-    int array[5];
-    int size;
-    int	i;
+	int	i;
+	int	j;
+	int	temp;
 
-    array[0] = 1;
-    array[1] = 6;
-    array[2] = 8;
-    array[3] = 9;
-    array[4] = 7;
-    size = 5;
-
-	ft_sort_int_tab(array, size);
-	// mostrar elementos array
-    i = 0;
-	while (i < size)
+	i = 0;
+	while (i < size - 1)
 	{
-		printf("%d\n", array[i]);
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] > tab[j])
+			{
+				temp = tab[i];
+				tab[i] = tab[j];
+				tab[j] = temp;
+			}
+			j++;
+		}
 		i++;
-	}
-
-    return (0);
-}
-
-/**
- * Ordenar de menor a mayor el array.
- * Siempre se asume que el menor es el nº por el que iteramos en el bucle principal.
- */
-void ft_sort_int_tab(int *array, int size)
-{
-    int index;
-	int index_aux;
-	int min_index;
-	int temp;
-    
-    index = 0;
-    // iterar hasta el penultimo porque voy a comprobar x y x+1
-    // por eso hago index < size -1
-	while (index < size - 1)
-	{
-		min_index = index;
-        // siempre voy a comprobar x y x+1
-		index_aux = index + 1;
-        // desde x+1 hasta el final-1
-		while (index_aux < size)
-		{
-            // si el numero evaluado es mayor al numero iterado en este scope, cambio el indice del nuevo numero minimo
-			if (array[min_index] > array[index_aux])
-            {
-                min_index = index_aux;
-            }
-			index_aux++;
-		}
-        // si se ha encontrado algun numero menor al inicial, se intercambian
-		if (min_index != index)
-		{
-			temp = array[index];
-			array[index] = array[min_index];
-			array[min_index] = temp;
-		}
-		index++;
 	}
 }
