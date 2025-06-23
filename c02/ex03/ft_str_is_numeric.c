@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igomez-c <igomez-c@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 12:31:16 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/23 12:52:47 by igomez-c         ###   ########.fr       */
+/*   Created: 2025/06/23 20:21:16 by igomez-c          #+#    #+#             */
+/*   Updated: 2025/06/23 20:38:25 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src);
+int	ft_str_is_numeric(char *str);
 
 // int	main(void)
 // {
-// 	char	src[] = "que pasa brouston";
-// 	char	dest[17];
+// 	char	*str;
+// 	int		result;
 
-// 	// no recojo el return de ft_strcpy porque ya 
-//	// modifica el propio puntero de este scope
-// 	ft_strcpy(dest, src);
-// 	printf("Resultado: %s\n", dest);
+// 	str = "";
+// 	result = ft_str_is_numeric(str);
+// 	printf("%i", result);
 // 	return (0);
 // }
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_str_is_numeric(char *str)
 {
-	int	index;
+	char	c;
+	int		index;
+	int		result;
 
 	index = 0;
-	while (src[index] != '\0')
+	c = str[index];
+	result = 1;
+	while (c != '\0' && result == 1)
 	{
-		dest[index] = src[index];
+		if (c < 48 || c > 57)
+		{
+			result = 0;
+		}
 		index++;
+		c = str[index];
 	}
-	dest[index] = '\0';
-	return (dest);
+	return (result);
 }

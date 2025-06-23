@@ -1,42 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igomez-c <igomez-c@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 12:31:16 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/23 12:52:47 by igomez-c         ###   ########.fr       */
+/*   Created: 2025/06/23 12:34:34 by igomez-c          #+#    #+#             */
+/*   Updated: 2025/06/23 12:51:54 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src);
+char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-// int	main(void)
-// {
-// 	char	src[] = "que pasa brouston";
-// 	char	dest[17];
+//int	main(void)
+//{
+//	char	dest[20];
+//	char	src[20] = "Hola que tal bronin";
+//	int	n = 4;
+//
+//	ft_strncpy(dest, src, n);
+//	printf("%s", dest);
+//	return (0);
+//}
 
-// 	// no recojo el return de ft_strcpy porque ya 
-//	// modifica el propio puntero de este scope
-// 	ft_strcpy(dest, src);
-// 	printf("Resultado: %s\n", dest);
-// 	return (0);
-// }
-
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	index;
+	unsigned int	index;
 
 	index = 0;
-	while (src[index] != '\0')
+	while (src[index] != '\0' && index < n)
 	{
 		dest[index] = src[index];
 		index++;
 	}
-	dest[index] = '\0';
+	if (index < n)
+	{
+		while (index < n)
+		{
+			dest[index] = '-';
+			index++;
+		}
+	}
 	return (dest);
 }

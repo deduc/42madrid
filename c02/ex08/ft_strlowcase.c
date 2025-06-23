@@ -1,42 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                     :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igomez-c <igomez-c@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 12:31:16 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/23 12:52:47 by igomez-c         ###   ########.fr       */
+/*   Created: 2025/06/23 20:45:44 by igomez-c          #+#    #+#             */
+/*   Updated: 2025/06/23 21:07:11 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src);
+char	*ft_strlowcase(char *str);
 
 // int	main(void)
 // {
-// 	char	src[] = "que pasa brouston";
-// 	char	dest[17];
+// 	char	*str;
+// 	char	*result;
 
-// 	// no recojo el return de ft_strcpy porque ya 
-//	// modifica el propio puntero de este scope
-// 	ft_strcpy(dest, src);
-// 	printf("Resultado: %s\n", dest);
+// 	str = "HOLA QUE tal bronin 1234";
+// 	result = "";
+// 	result = ft_strlowcase(str);
+// 	printf("%s", result);
 // 	return (0);
 // }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strlowcase(char *str)
 {
-	int	index;
+	int			index;
+	char		c;
+	static char	result[100];
 
 	index = 0;
-	while (src[index] != '\0')
+	c = str[index];
+	while (c != 0)
 	{
-		dest[index] = src[index];
+		if (c >= 65 && c <= 90)
+		{
+			result[index] = c + 32;
+		}
+		else
+		{
+			result[index] = c;
+		}
 		index++;
+		c = str[index];
 	}
-	dest[index] = '\0';
-	return (dest);
+	return (result);
 }
