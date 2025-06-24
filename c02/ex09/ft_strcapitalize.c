@@ -13,38 +13,70 @@
 #include <stdio.h>
 
 char	*ft_strcapitalize(char *str);
+int		is_alphachar(char c);
+int		to_upper(char c);
+int		to_lower(char c);
 
-int	is_alphachar(char c);
+// int	main(void)
+// {
+// 	char	str[] = "_hola,brouston que,tal,";
 
-int	main(void)
-{
-	char	*str = "_hOL,AA que tal";
-	ft_strcapitalize(str);
-	return (0);
-}
+// 	ft_strcapitalize(str);
+// 	return (0);
+// }
 
 char	*ft_strcapitalize(char *str)
 {
-	int			index;
-	int			new_word;
-	char		c;
-	char		last_c;
+	int		index;
+	char	c;
+	char	last_c;
 
 	index = 0;
-	new_word = 0;
-	c = str[index + 1];
-	while (c != '\0')
+	c = 'a';
+	last_c = 'a';
+	while (c != '\0' && last_c != '\0')
 	{
 		last_c = str[index];
 		index++;
 		c = str[index];
-
-		printf("c = '%c' --- last = '%c'\n", c, last_c);
+		if (is_alphachar(last_c) == 0 && is_alphachar(c) == 1)
+		{
+			str[index] = to_upper(c);
+		}
+		else
+		{
+			str[index] = to_lower(c);
+		}
 	}
 	return (str);
 }
 
 int	is_alphachar(char c)
 {
+	int	is_alpha;
 
+	is_alpha = 0;
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	{
+		is_alpha = 1;
+	}
+	return (is_alpha);
+}
+
+int	to_upper(char c)
+{
+	if (c >= 'a' && c <= 'z' && is_alphachar(c))
+	{
+		c = c - 32;
+	}
+	return (c);
+}
+
+int	to_lower(char c)
+{
+	if (c >= 'A' && c <= 'Z' && is_alphachar(c))
+	{
+		c = c + 32;
+	}
+	return (c);
 }

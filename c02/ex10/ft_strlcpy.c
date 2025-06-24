@@ -1,36 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igomez-c <igomez-c@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 12:34:34 by igomez-c          #+#    #+#             */
-/*   Updated: 2025/06/23 12:51:54 by igomez-c         ###   ########.fr       */
+/*   Created: 2025/06/24 10:50:06 by igomez-c          #+#    #+#             */
+/*   Updated: 2025/06/24 10:50:07 by igomez-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n);
+char	*ft_strncpy(char *dest, const char *src, unsigned int n);
 
 // int	main(void)
 // {
-// 	char	dest[20];
-// 	char	src[20] = "Hola que tal bronin";
-// 	int	n = 40;
+//     char src[] = "Hola que tal bronin";
+//     char dest[100];
+//     unsigned int n = 20;
 
-// 	ft_strncpy(dest, src, n);
-// 	printf("%s\n", dest);
-// 	return (0);
+//     ft_strncpy(dest, src, n);
+
+//     printf("Cadena copiada: \"%s\"\n", dest);
+
+//     printf("Contenido byte a byte:\n");
+//     for (unsigned int i = 0; i < n; i++)
+//     {
+// 	if (dest[i] == '\0')
+// 	    printf("\\0 ");
+// 	else
+// 	    printf("%c ", dest[i]);
+//     }
+//     printf("\n");
+
+//     return 0;
 // }
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
 	unsigned int	index;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	while (index < n && src[index] != '\0')
 	{
 		dest[index] = src[index];
 		index++;
